@@ -1,0 +1,151 @@
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333333;
+    line-height: 20px;
+    font-size: 16px;
+    
+
+
+}
+
+#header{
+
+    text-indent: 0px;
+    background-color: RGB(32,82,115);
+    border: 1px solid;
+
+}
+
+
+
+#middle{
+
+    position: relative;
+    margin-left: 50px;
+    margin-right:auto;
+    width:30%;
+    top: 20px;
+    line-height:200%
+    
+    
+    
+}
+
+#botao-gravar{
+
+    line-height:300%
+
+}
+
+#botao-novo{
+
+    position: relative;
+    top: -30px;
+    margin-left: 50px;
+    margin-right:auto;
+    width:50%;
+
+}
+
+.menu{
+
+    width:50%;
+    position: relative;
+    margin-left: 300px;
+    
+
+}
+
+.menu_list{
+
+    display: inline;
+    color: rgb(0, 136, 204);
+    text-decoration: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 100px 100px 5px 5px;
+    text-align: center;
+    
+    
+
+}
+
+.link:visited{
+
+    text-decoration:none;
+    color:rgb(0, 136, 204);
+}
+
+.link:link{
+
+    text-decoration:none;
+    color:rgb(0, 136, 204);
+     
+}
+
+.link:hover{
+    background-color: rgb(0, 136, 204);
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    
+
+}
+
+.tab_total{
+    
+    width: 25%;
+    margin-left: 400px;
+    text-align: center;
+    border: solid 1px;
+    
+
+}
+
+.tab_total_titulo{
+    background-color: #BDD8DA;
+
+}
+
+.table-striped{
+
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: center;
+    
+
+}
+
+th.index_tj{
+    background-color: #BDD8DA;
+    
+
+}
+
+tr{
+   height: 40px;
+   border-bottom:solid gray 0.5px; 
+}
+
+tr.index_tj_body:nth-child(even) {
+   background-color: #DFEFF0;
+   border-top:solid gray 0.5px;
+   border-bottom:solid gray 0.5px;
+}
+
+tr.index_tj_body:last-child {
+    border-bottom:solid gray 0.5px;
+
+}
+
+#middle_cad{
+	
+	text-align: middle;
+	width: 50%;	
+	margin-left: 450px;
+	
+}
