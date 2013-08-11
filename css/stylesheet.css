@@ -149,3 +149,15 @@ tr.index_tj_body:last-child {
 	margin-left: 450px;
 	
 }
+
+.data_processo{
+	
+	display: inline;
+    color: rgb(0, 136, 204);
+    text-decoration: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 100px 100px 5px 5px;
+    text-align: center;
+	
+
+}

@@ -3,32 +3,45 @@
     require_once("Comon/common.php"); 
 	
     
-    //checking if initial date was given and if not establishing 30 days prior
-			if ($_POST["data0"] == null){
-				$data0 = date("Y-(m-1)-d");
-			}
-			else {
-				$data0 = $_POST["data0"];
-			}
-			$dataf = $_POST["dataf"];
-			
-			//checking if final date was given and if not establishing today as final date
-			if ($_POST["dataf"] == null){
-				$dataf = date("Y-m-d");
-			}
-			else {
-				$dataf = $_POST["dataf"];
-			}
-			
-			//Checking if the dates are not to far apart
-			$interval = date_diff(date_create($data0), date_create($dataf)); 
-			$interval = $interval -> format('%a');
-			
-			if ($interval > 60){
-				
-				apologize("Periodo muito longo. Por favor, reduzir!"); 
-			}
+	//checking if initial date was given and if not establishing 30 days prior
+	if ($_SESSION["data0"] == NULL){
+		
+		$data0 = date("Y-m-d", strtotime("-1 month"));
+		
+		
+	}
+	else{
+		$data0 = $_SESSION["data0"];
+	}
 	
+	
+	
+	//checking if final date was given and if not establishing today as final date
+	if ($_SESSION["dataf"] == NULL){
+		
+		$dataf = date("Y-m-d");
+		
+	}
+	else{
+		$dataf = $_SESSION["dataf"];
+	}
+
+	$newdate0 = date("d-m-Y", strtotime($data0));
+	$newdatef = date("d-m-Y", strtotime($dataf));
+	
+	
+	
+	//Checking if the dates are not to far apart
+	$interval = date_diff(date_create($data0), date_create($dataf)); 
+	$interval = $interval -> format('%a');
+	
+	
+	
+	if ($interval > 60){
+		
+		apologize("Periodo muito longo. Por favor, reduzir!"); 
+	}
+
 
 
    
@@ -50,7 +63,8 @@
                 <a href="index.php"> <img src="http://www2.tjdft.jus.br/img/cabecaBrasaoPgResp.jpg" alt="TJDFT"> </a>         
             </div>
             <br>
-        
+        	<div><p class = "data_processo"> Processos cadastrados de <?print $newdate0?> a <?print $newdatef?></p></div>
+        	<br>
             <div>
             	
             	
@@ -73,9 +87,19 @@
             	
             	<?php
            		
+					if($_SESSION["tipo"] != NULL){
 						
-					$result = mysql_query("SELECT * FROM `processos` WHERE  `data` > '$data0' AND `data` < '$dataf'");
+						$tipo = $_SESSION["tipo"];
+						
+						$result = mysql_query("SELECT * FROM `processos` WHERE  `data` > '$data0' AND `data` < '$dataf' AND `tipo` = '$tipo'");
+						
+						
+					}
+
+					else{
 							
+						$result = mysql_query("SELECT * FROM `processos` WHERE  `data` > '$data0' AND `data` < '$dataf'");
+					}		
 							
 			        while($row = mysql_fetch_array($result)){
 			        
@@ -99,4 +123,4 @@
             	
 
 		</body>
-	</html>
+</html>

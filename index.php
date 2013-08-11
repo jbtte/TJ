@@ -55,6 +55,7 @@
 
   <head>
     <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
     <title>JP: Processos</title>
   </head>
 
@@ -120,7 +121,7 @@
                         
                         
                         
-                        $result = mysql_query("SELECT tipo, processo, relator, reu, crime, Data FROM Processos WHERE `index` = $index");
+                        $result = mysql_query("SELECT tipo, processo, relator, reu, crime, Data FROM processos WHERE `index` = $index");
                         $row = mysql_fetch_array($result);
                         
                         print('<tr class = index_tj_body>');                                        

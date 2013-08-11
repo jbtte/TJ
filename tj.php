@@ -43,7 +43,7 @@
             <td>Crime:</td><td><input input type="text" placeholder="crime" name="crime" autofocus=""></td>
           </tr>
           <tr>
-            <td></td><td><input input type="radio" name="relator" value="relator">Relator<input input type="radio" name="revisor" value="revisor">Revisor</td>
+            <td><input input type="radio" name="relator" value="relator">Relator</td><td><input input type="radio" name="relator" value="revisor">Revisor</td>
           </tr>
           
           <tr>

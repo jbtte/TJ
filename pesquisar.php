@@ -4,6 +4,12 @@
     require_once("Comon/common.php"); 
     
     $id = $_SESSION["id"];
+	$_SESSION["data0"] = NULL;
+	$_SESSION["dataf"] = NULL;
+	$_SESSION["tipo"] = NULL;
+	
+	
+	
 	
 ?>
 <!DOCTYPE html>

@@ -11,16 +11,16 @@
 
 
     // your database's name (i.e., username_pset7)
-    define("DB_NAME", "u681774148_tj");
+    define("DB_NAME", "TJ");
 
     // your database's password
     define("DB_PASSWORD", "felipe10");
 
     // your database's server
-    define("DB_SERVER", "mysql.hostinger.com.br");
+    define("DB_SERVER", "localhost");
 
     // your database's username
-    define("DB_USERNAME", "u681774148_tj");
+    define("DB_USERNAME", "root");
 
    
 

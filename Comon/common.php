@@ -15,7 +15,7 @@
     error_reporting(E_ALL ^ E_NOTICE);
 
     // enable sessions, restricting cookie to /~username/pset7/
-    if (preg_match("{^(/~[^/]+/pset7/)}", $_SERVER["REQUEST_URI"], $matches))
+    if (preg_match("{^(/~[^/]+/TJ/)}", $_SERVER["REQUEST_URI"], $matches))
         session_set_cookie_params(0, $matches[1]);
     session_start();
 
@@ -23,7 +23,7 @@
     date_default_timezone_set('America/Sao_Paulo');
     
     // requirements
-    require_once("constants.php");
+    require_once("constants1.php");
     require_once("helpers.php");
     
 

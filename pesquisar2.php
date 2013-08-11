@@ -12,6 +12,13 @@
 	
 
 	if ($_POST["data0"] != null || $_POST["dataf"] != null){
+		$_SESSION["data0"] = $_POST["data0"];
+		$_SESSION["dataf"] = $_POST["dataf"];
+		
+		if ($_POST["tipo"] != null){
+			
+			$_SESSION["tipo"] = $_POST["tipo"];	
+		}
 		
 		header("Location:pesquisar3.php");
 	}
@@ -65,18 +72,18 @@
 							
 						
 						$reu = $_POST["reu"];
-						$tipo = strtoupper($_POST["tipo"]);
-						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM Processos WHERE reu LIKE '%$reu%' AND tipo LIKE '$tipo'");
+						$tipo = $_POST["tipo"];
+						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE reu LIKE '%$reu%' AND tipo LIKE '$tipo'");
 							
 					}
 					
-					if (($_POST["processo"] != null) && ($_POST["tipo"] != null))
+					else if (($_POST["processo"] != null) && ($_POST["tipo"] != null))
 					{
 							
 						
 						$processo = $_POST["processo"];
 						$tipo = strtoupper($_POST["tipo"]);
-						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM Processos WHERE processo LIKE '%$processo%' AND tipo LIKE '$tipo'");
+						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE processo LIKE '%$processo%' AND tipo LIKE '$tipo'");
 							
 					}
 				    
@@ -84,15 +91,15 @@
 					{
 							
 						$reu = $_POST["reu"];
-						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM Processos WHERE reu LIKE '%$reu%'");
+						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE reu LIKE '%$reu%'");
 							
 					}
 					
-					else if ($_POST["processo"] != null)
+					else if ($_POST["processo"] != null && ($_POST["tipo"] == null))
 					{
 
 						$processo = $_POST["processo"];
-						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM Processos WHERE processo LIKE '%$processo%'");
+						$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE `processo` LIKE '%$processo%'");
 							
 					}
 					

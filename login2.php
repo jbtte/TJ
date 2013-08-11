@@ -25,7 +25,7 @@
             $_SESSION["id"] = $row["id"];
 
             // redirect to portfolio
-            redirect("index.php");
+            header("Location:index.php");
         }
     }
 

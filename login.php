@@ -8,26 +8,30 @@
 
     <head>
         <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+        <link href="css/login.css" rel="stylesheet" type="text/css">
         <title>JP: Log In</title>
     </head>
     
     <body>
-        <div id="middle">
-          <form action="login2.php" method="post">
-            <table>
-              <tr>
-                <td>Username:</td>
-                <td><input name="usuario" type="text"></td>
-              </tr>
-              <tr>
-                <td>Password:</td>
-                <td><input name="senha" type="password"></td>
-              </tr>
-              <tr>
-                <td colspan="2"><input type="submit" value="Log In"></td>
-              </tr>
-            </table>
-          </form>
+    	<div id="header"></div>
+    	<div id="content"></div>
+        <div id="footer">
+        	<div id = "content">
+	          <form action="login2.php" method="post">
+	            <table>
+	              <tr>
+	                
+	                <td><input name="usuario" placeholder="User" type="text"></td>
+	              </tr>
+	              <tr>
+	                
+	                <td><input name="senha" placeholder="Password" type="password"></td>
+	              	<td></td>
+	                <td colspan="2"><input type="submit" value="Log In"></td>
+	              </tr>
+	            </table>
+	          </form>
+	        </div>  
         </div>
     
     

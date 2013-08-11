@@ -18,11 +18,11 @@
 	        // Some raw data (not necessarily accurate)
 	        var data = google.visualization.arrayToDataTable([
 	          ['Month', 'RSE/RAG',   'APR',      'Total', 'Media'],
-	          ['2004/05',  165,      938,         522,        614.6],
-	          ['2005/06',  135,      1120,        599,        682],
-	          ['2006/07',  157,      1167,        587,        623],
-	          ['2007/08',  139,      1110,        615,        609.4],
-	          ['2008/09',  136,      691,         629,       569.6]
+	          ['Março',  10,         15,           25,        25],
+	          ['Abril',  7,           3,           10,        17.5],
+	          ['Maio',  9,           21,           30,        21.7],
+	          ['Junho',  5,          13,           18,        20.8],
+	          ['Julho',  4,          6,            10,       18.6]
 	        ]);
 	
 	        var options = {
