@@ -6,3 +6,31 @@ html {
   background-size: cover;
   
 }
+
+.menu{
+	
+	border: 1px black solid;
+	width:10%;
+	position: relative;
+	
+    margin-top: 100px;
+	
+	
+}
+
+.tab_total{
+	
+	border: 1px black solid;
+	position: relative;
+    margin-left: 400px;
+    margin-top: 20px;
+	
+}
+
+.table-striped{
+	
+	border: 1px black solid;
+	position: relative;
+    margin-left: 200px;
+    margin-top: 150px;
+}

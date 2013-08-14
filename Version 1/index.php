@@ -54,7 +54,7 @@
 <html>
 
   <head>
-    <!--<link href="css/stylesheet.css" rel="stylesheet" type="text/css">-->
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <title>JP: Processos</title>
   </head>
@@ -62,7 +62,7 @@
   <body>
 
     <div id ='header'>
-               
+        <a href="index.php"> <img src="http://www2.tjdft.jus.br/img/cabecaBrasaoPgResp.jpg" alt="Brasao'TJDFT"> </a>        
     </div>
     
     <div>
@@ -79,7 +79,6 @@
     <div>
         <table class = "tab_total">
             <tbody>
-            	
         
                 <tr >
                     <td class = "tab_total_titulo">Total</td>

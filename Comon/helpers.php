@@ -3,8 +3,7 @@
     /***********************************************************************
      * helpers.php
      *
-     * Computer Science 50
-     * Problem Set 7
+     * 
      *
      * Helper functions.
      **********************************************************************/
@@ -72,56 +71,7 @@
     }
 
 
-    /*
-     * stock
-     * lookup($symbol)
-     *
-     * Returns a stock by symbol (case-insensitively) else NULL if not found.
-     */
-
-    function lookup($symbol)
-    {
-        // reject symbols that start with ^
-        if (preg_match("/^\^/", $symbol))
-            return NULL;
-
-        // reject symbols that contain commas
-        if (preg_match("/,/", $symbol))
-            return NULL;
-
-        // open connection to Yahoo
-        if (($fp = @fopen(YAHOO . $symbol, "r")) === false)
-            return NULL;
-
-        // download first line of CSV file
-        if (($data = fgetcsv($fp)) === false || count($data) == 1)
-            return NULL;
-
-        // close connection to Yahoo
-        fclose($fp);
-
-        // ensure symbol was found
-        if ($data[2] == 0.00)
-            return NULL;
-
-        // instantiate a stock object
-        $stock = new Stock();
-
-        // remember stock's symbol and trades
-        $stock->symbol = $data[0];
-        $stock->name = $data[1];
-        $stock->price = $data[2];
-        $stock->time = strtotime($data[3] . " " . $data[4]);
-        $stock->change = $data[5];
-        $stock->open = $data[6];
-        $stock->high = $data[7];
-        $stock->low = $data[8];
-
-        // return stock
-        return $stock;
-    }
-
-
+    
     /*
      * void
      * redirect($destination)
@@ -160,5 +110,108 @@
         // exit immediately since we're redirecting anyway
         exit;
     }
+	
+	
+	//criando uma mascara para formatar o numero do processo
+	
+	function mascara_string($mascara,$string)
+	{
+	   //$string = str_replace(" ","",$string);
+	   for($i=0;$i<(strlen($string)-3);$i++)
+	   {
+	      $mascara[strpos($mascara,"#")] = $string[$i];
+	   }
+	   return $mascara;
+	}
+	
+	
+	/*
+     * stock
+     * lookup($num_processo)
+     *
+     * Returns the case info  
+	 * 
+	 */
+  
+	
+	
+	
+	function lookup($num_processo)
+	{
+		
+		// include library simple HTML DOM
+		include('simple_html_dom.php');
+		
+		//enconding in UTF-8 so carachters with accent are shown correctly
+		header('Content-Type: text/html; charset=utf-8');
+		
+	    // Create DOM from URL or file
+		
+		$url = 'http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?SELECAO=1&COMMAND=ok&CHAVE='.$num_processo.'&TitCabec=2%AA+Inst%E2ncia+%3E+Consulta+Processual&NXTPGM=plhtml02&ORIGEM=INTER';
+		$html = file_get_html($url);
+		
+		//instantiate a stock object
+		$dados = array();
+	
+		# get the desiered elements  
+		$dados[0] = $html->find('#i_nomeReu',0)->value; 
+		$dados[1] = $html->find('#i_numeroProcesso14', 0)->value;
+		$dados[2] = $html->find('table', 0)->find('td', 5);
+		$dados[3] = $html->find('#i_classeProcessual', 0)->value;
+		$dados[4] = $html->find('table', 0)->find('td', 18);
+	
+		//return a string with all NUL bytes, HTML and PHP tags (<p>, <td>) stripped from $assunto.
+		$dados[2] = strip_tags($dados[2]);
+		$dados[4] = strip_tags($dados[4]);
+	
+		//Transformando o nome por extenso na sigla: APR, RSE e RAG
+		switch($dados[3]){
+			
+			case "Apelação Criminal":
+				$dados[3] = "APR";
+				break;
+				
+			case "Recurso em Sentido Estrito":
+				$dados[3] = "RSE";
+				break;
+				
+			case "Recurso de Agravo":
+				$dados[3] = "RAG";
+				break;
+			
+			default:
+				$dados[3] = $dados[3];
+		}
+	
+		//Verificando se o processo e de relator ou revisor
+		
+		switch($dados[4]){
+			
+			case "Desª. NILSONI DE FREITAS":
+				$dados[4] = "RELATOR";
+				break;
+			
+			default:
+				$dados[4] = "REVISOR";
+			
+		}
+		
+		// Colocando o numero do processo no formato correto
+		$dados[1] = mascara_string('####.##.#.######-#',$dados[1]);
+		
+		// exiting Simple HTML DOM PHP
+		$html->clear(); 
+		unset($html);
+		
+		// return dados
+        return $dados;
+		
+		
+	}
+	
+	
+	 
+	
+	
 
 ?>

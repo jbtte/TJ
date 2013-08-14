@@ -1,42 +1,33 @@
 <?php
 
-	// example of how to use advanced selector features
-	include('simple_html_dom.php');
-    // Create DOM from URL or file
-	$html = file_get_html('http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?NXTPGM=tjhtml105&ORIGEM=INTER&SELECAO=1&CIRCUN=1&CDNUPROC=20130110285074');
+	// require common code
+    require_once("Comon/common.php"); 
 	
-	# get an element representing the second paragraph  
-	$reu = $html->find('#i_nomeReu', 0);
-	$processo = $html->find('#i_numeroProcesso14', 0);
-	$assunto = $html->find('#i_assuntoProcessual', 0); 
+	
+	$num_processo = "12-0058784";
+	
+	$dados = lookup($num_processo);
 	
 	
 	
-	//$html = file_get_html('http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?NXTPGM=plhtml02&COMMAND=ok&TitCabec=2%AA+Inst%E2ncia+%3E+Consulta+Processual&SELECAO=1&ORIGEM=INTER&CHAVE=2013.01.1.028507-4')
-	
-	//$tipo = $html->find('#i_classeProcessual', 0);
-	
-	//if ($tipo == "Apelação Criminal"){
-		//$tipo == "APR";
-	//}
-	
-	//$html->clear(); 
-	//unset($html);
 	
 	
-	echo ("Nome do reu: " . $reu); 
+	
+	
+	//Imprimindo os resultados
+	echo ("Nome do reu: " . $dados[0]); 
 	echo ("<br>");
-	echo ("Numero do processo: " . $processo);
+	echo ("Numero do processo: " . $dados[1]);
 	echo ("<br>");
-	echo ("Crime: " . $assunto);
+	echo ("Crime: " . $dados[2]);
 	echo ("<br>");
-	echo ("Classe: " . $tipo);
+	echo ("Classe: " . $dados[3]);
+	echo ("<br>");
+	echo ("Relator: " . $dados[4]);
 	
-	$html->clear(); 
-	unset($html);     
+	  
+		   
 	
 	
 	
 ?>
-
-<!DOCTYPE html>
