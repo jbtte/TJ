@@ -133,10 +133,8 @@
 	 * 
 	 */
   
-	
-	
-	
-	function lookup($num_processo)
+
+function lookup($num_processo)
 	{
 		
 		// include library simple HTML DOM
@@ -145,24 +143,59 @@
 		//enconding in UTF-8 so carachters with accent are shown correctly
 		header('Content-Type: text/html; charset=utf-8');
 		
-	    // Create DOM from URL or file
+	    //Establishing the correct url to be called
+	    if (strlen($num_process) > 9){
+	    	
+			$url = url_long($num_processo);
+			
+	    }
 		
-		$url = 'http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?SELECAO=1&COMMAND=ok&CHAVE='.$num_processo.'&TitCabec=2%AA+Inst%E2ncia+%3E+Consulta+Processual&NXTPGM=plhtml02&ORIGEM=INTER';
+		else{
+			
+			$url = url_short($num_processo);
+		}
+	    
+	    
+	    // Create DOM from URL or file
 		$html = file_get_html($url);
 		
 		//instantiate a stock object
 		$dados = array();
 	
 		# get the desiered elements  
+		//Nome do reu
 		$dados[0] = $html->find('#i_nomeReu',0)->value; 
+		//numero do processo
 		$dados[1] = $html->find('#i_numeroProcesso14', 0)->value;
+		//crime
 		$dados[2] = $html->find('table', 0)->find('td', 5);
+		$dados[2] = strip_tags($dados[2]); //retira o <p> e <td>
+		//classe processual
 		$dados[3] = $html->find('#i_classeProcessual', 0)->value;
+		//nome do relator
 		$dados[4] = $html->find('table', 0)->find('td', 18);
+		$dados[4] = strip_tags($dados[4]); //retira o <p> e <td>
+		
+		//quando ha mais de um processo com o mesmo numero
+		//classe do primeiro processo
+		$dados[5] = $html->find('#classeProcessual_1_1_1', 0)->value;
+		//numero do primeiro processo
+		$dados[6] = $html->find('#processo_1_1_1', 0)->value;
+		//classe do segundo processo
+		$dados[7] = $html->find('#classeProcessual_1_1_2', 0)->value;
+		//numero do segundo processo
+		$dados[8] = $html->find('#processo_1_1_2', 0)->value;
+		
+		
 	
-		//return a string with all NUL bytes, HTML and PHP tags (<p>, <td>) stripped from $assunto.
-		$dados[2] = strip_tags($dados[2]);
-		$dados[4] = strip_tags($dados[4]);
+		//verifing if autor do recurso is MP
+		if ($dados[0] == "MINISTÉRIO PÚBLICO DO DISTRITO FEDERAL E TERRITÓRIOS"){
+			
+			$dados[0] = $html->find('#i_nomeAutor',0)->value; 
+			
+		}
+		
+		
 	
 		//Transformando o nome por extenso na sigla: APR, RSE e RAG
 		switch($dados[3]){
@@ -209,6 +242,28 @@
 		
 	}
 	
+/*
+ * Inputs the correct URL to the function lookup
+ * 
+ * 
+ */	
+ 
+ 
+function url_short($num_processo){
+	
+	$url = 'http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?SELECAO=1&COMMAND=ok&CHAVE='.$num_processo.'&TitCabec=2%AA+Inst%E2ncia+%3E+Consulta+Processual&NXTPGM=plhtml02&ORIGEM=INTER';
+	
+	return $url;
+	
+}	
+
+function url_long($num_processo){
+	
+	$url = "http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?NXTPGM=plhtml06&ORIGEM=INTER&CDNUPROC='.$num_processo'";
+	
+	return $url;
+	
+}
 	
 	 
 	

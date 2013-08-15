@@ -6,7 +6,7 @@
     // check if any field was filled in
     if ($_POST["processo"] == null && $_POST["tipo"] == null && $_POST["reu"] == null && $_POST["crime"] == null && $_POST["data0"] == null && $_POST["dataf"] == null)
     {
-        apologize("Tem que reencher algum campo para a pesquisa ser realizada");    
+        apologize("Tem que preencher algum campo para a pesquisa ser realizada");    
     
     };
 	
