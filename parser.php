@@ -20,10 +20,15 @@
 	//$dados = array();
 
 	# get the desiered elements  
-	$dados = $html->find('#processo_1_1_1', 0)->value; 
+	$dados1 = $html->find('table', 0)->find('td', 5);
+	$dados2 = $html->find('#processo_1_1_1', 0)->value; 
+	$dados6 = $html->find('#classeProcessual_1_1_1', 0)->value;
 	
 	
-	print $dados;
+	
+	
+	print $dados1;
+	print $dados6;
 	
 	
 	//$dados = lookup($num_processo);

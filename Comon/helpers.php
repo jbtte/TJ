@@ -124,9 +124,12 @@
 	   return $mascara;
 	}
 	
-	
+
+
+
+
 	/*
-     * stock
+     * 
      * lookup($num_processo)
      *
      * Returns the case info  
@@ -144,94 +147,14 @@ function lookup($num_processo)
 		header('Content-Type: text/html; charset=utf-8');
 		
 	    //Establishing the correct url to be called
-	    if (strlen($num_process) > 9){
-	    	
-			$url = url_long($num_processo);
-			
-	    }
-		
-		else{
-			
-			$url = url_short($num_processo);
-		}
-	    
-	    
+	    $url = call_url($num_processo); 
+	   
 	    // Create DOM from URL or file
 		$html = file_get_html($url);
 		
-		//instantiate a stock object
-		$dados = array();
+		//creating array with desired info
+		$dados = call_dados($html, $num_processo);
 	
-		# get the desiered elements  
-		//Nome do reu
-		$dados[0] = $html->find('#i_nomeReu',0)->value; 
-		//numero do processo
-		$dados[1] = $html->find('#i_numeroProcesso14', 0)->value;
-		//crime
-		$dados[2] = $html->find('table', 0)->find('td', 5);
-		$dados[2] = strip_tags($dados[2]); //retira o <p> e <td>
-		//classe processual
-		$dados[3] = $html->find('#i_classeProcessual', 0)->value;
-		//nome do relator
-		$dados[4] = $html->find('table', 0)->find('td', 18);
-		$dados[4] = strip_tags($dados[4]); //retira o <p> e <td>
-		
-		//quando ha mais de um processo com o mesmo numero
-		//classe do primeiro processo
-		$dados[5] = $html->find('#classeProcessual_1_1_1', 0)->value;
-		//numero do primeiro processo
-		$dados[6] = $html->find('#processo_1_1_1', 0)->value;
-		//classe do segundo processo
-		$dados[7] = $html->find('#classeProcessual_1_1_2', 0)->value;
-		//numero do segundo processo
-		$dados[8] = $html->find('#processo_1_1_2', 0)->value;
-		
-		
-	
-		//verifing if autor do recurso is MP
-		if ($dados[0] == "MINISTÉRIO PÚBLICO DO DISTRITO FEDERAL E TERRITÓRIOS"){
-			
-			$dados[0] = $html->find('#i_nomeAutor',0)->value; 
-			
-		}
-		
-		
-	
-		//Transformando o nome por extenso na sigla: APR, RSE e RAG
-		switch($dados[3]){
-			
-			case "Apelação Criminal":
-				$dados[3] = "APR";
-				break;
-				
-			case "Recurso em Sentido Estrito":
-				$dados[3] = "RSE";
-				break;
-				
-			case "Recurso de Agravo":
-				$dados[3] = "RAG";
-				break;
-			
-			default:
-				$dados[3] = $dados[3];
-		}
-	
-		//Verificando se o processo e de relator ou revisor
-		
-		switch($dados[4]){
-			
-			case "Desª. NILSONI DE FREITAS":
-				$dados[4] = "RELATOR";
-				break;
-			
-			default:
-				$dados[4] = "REVISOR";
-			
-		}
-		
-		// Colocando o numero do processo no formato correto
-		$dados[1] = mascara_string('####.##.#.######-#',$dados[1]);
-		
 		// exiting Simple HTML DOM PHP
 		$html->clear(); 
 		unset($html);
@@ -249,24 +172,130 @@ function lookup($num_processo)
  */	
  
  
-function url_short($num_processo){
+function call_url($num_processo){
+				
+			
+		if (strlen($num_process) > 9){
+	    	$url = "http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?NXTPGM=plhtml06&ORIGEM=INTER&CDNUPROC='.$num_processo'";
+			
+	    }
+		
+		else{
+			$url = 'http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?SELECAO=1&COMMAND=ok&CHAVE='.$num_processo.'&TitCabec=2%AA+Inst%E2ncia+%3E+Consulta+Processual&NXTPGM=plhtml02&ORIGEM=INTER';
+		}
 	
-	$url = 'http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?SELECAO=1&COMMAND=ok&CHAVE='.$num_processo.'&TitCabec=2%AA+Inst%E2ncia+%3E+Consulta+Processual&NXTPGM=plhtml02&ORIGEM=INTER';
+		return $url;
+		
+}
 	
-	return $url;
+/*
+ * Returns the information obtained at the website
+ * 
+ * 
+ * 
+ */
+ 
+function call_dados($html, $num_processo){
+	
+	
+	//instantiate a stock object
+	$dados = array();
+
+	# get the desiered elements  
+	//Nome do reu
+	$dados[0] = $html->find('#i_nomeReu',0)->value; 
+	
+	if ($dados[0] == NULL){
+		
+		// redirect to TJ4 to choose which case it is
+        header("Location:tj4.php?id=".$num_processo);
+		
+	}
+	
+	//numero do processo
+	$dados[1] = $html->find('#i_numeroProcesso14', 0)->value;
+	//crime
+	$dados[2] = $html->find('table', 0)->find('td', 5);
+	$dados[2] = strip_tags($dados[2]); //retira o <p> e <td>
+	//classe processual
+	$dados[3] = $html->find('#i_classeProcessual', 0)->value;
+	//nome do relator
+	$dados[4] = $html->find('table', 0)->find('td', 18);
+	$dados[4] = strip_tags($dados[4]); //retira o <p> e <td>
+	
+	
+	
+	//verifing if autor do recurso is MP
+	if ($dados[0] == "MINISTÉRIO PÚBLICO DO DISTRITO FEDERAL E TERRITÓRIOS"){
+		
+		$dados[0] = $html->find('#i_nomeAutor',0)->value; 
+		
+	}
+	
+	//transformando classe em sigla
+	$dados[3] = para_Sigla($dados[3]);
+	
+	// Colocando o numero do processo no formato correto
+	$dados[1] = mascara_string('####.##.#.######-#',$dados[1]);
+	
+	//Verificar se e relator ou revisor
+	$dados[4] = e_relator($dados[4]);
+	
+	return $dados;
 	
 }	
 
-function url_long($num_processo){
-	
-	$url = "http://tjdf19.tjdft.jus.br/cgi-bin/tjcgi1?NXTPGM=plhtml06&ORIGEM=INTER&CDNUPROC='.$num_processo'";
-	
-	return $url;
-	
+/*
+ * Transformando o nome por extenso na sigla: APR, RSE e RAG
+ * 
+ * 
+ */	
+ 
+ function para_Sigla($dados){
+		
+	switch($dados){
+		
+		case "Apelação Criminal":
+			$dados = "APR";
+			break;
+			
+		case "Recurso em Sentido Estrito":
+			$dados = "RSE";
+			break;
+			
+		case "Recurso de Agravo":
+			$dados = "RAG";
+			break;
+		
+		default:
+			$dados = $dados;
+	}
+
+	return $dados;
+
 }
+ 
+ 
+ /*
+  * Verificando se o processo e de relator ou revisor
+  */
+		
+function e_relator($dados){
+
+
+	switch($dados){
+		
+		case "Desª. NILSONI DE FREITAS":
+			$dados = "RELATOR";
+			break;
+		
+		default:
+			$dados = "REVISOR";
+		
+	}
 	
-	 
-	
-	
+	return $dados;
+ 	
+}	
 
 ?>

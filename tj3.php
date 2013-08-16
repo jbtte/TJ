@@ -1,4 +1,5 @@
 <?php
+    
     // require common code
     require_once("Comon/common.php");
 	
@@ -9,12 +10,6 @@
 	//get date
     $today = date("Y-m-d");
 	
-	if ($dados[5] != NULL){
-		
-		// redirect to TJ4 to choose which case it is
-        header("Location:tj4.php?id=".$_POST["processo"]);
-		
-	}
 	
 ?>
 
