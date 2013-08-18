@@ -19,6 +19,27 @@
   <head>
     <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
     <title>Processos TJ: Pesquisa</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+	  <link rel="stylesheet" href="/resources/demos/style.css" />
+	  <script>
+	  $(function() {
+	    
+	    $("#nome_reu").autocomplete({
+	      source: 'autocompleteReu.php',
+	      minLength: 1
+	    });
+	  });
+	  
+	  $(function() {
+	    
+	    $("#num_processo").autocomplete({
+	      source: 'autocompleteProcesso.php',
+	      minLength: 1
+	    });
+	  });
+	  </script>
   </head>
   
   
@@ -30,17 +51,17 @@
 
 
 	<div id='middle'>
-	      <form action="pesquisar2.php" method="post">
+	      <form action="pesquisar2.php" method="post" autocomplete="off">
 	        <table>
 	          <tr>
-	            <td>Processo: </td><td> <input input type="text" placeholder="processo" name="processo" autofocus=""></td>
+	            <td>Processo: </td><td> <input id = "num_processo" type="text" placeholder="processo" name="processo" autofocus=""></td>
 	          </tr>
 	          
 	          <tr>
 	            <td>Tipo: </td><td><input input type="text" placeholder="tipo" name="tipo" autofocus=""></td>
 	          </tr>
-	          <tr>
-	            <td>Reu:</td><td><input input type="text" placeholder="reu" name="reu" autofocus=""></td>
+	          <tr >
+	            <td >Reu:</td><td><input id = "nome_reu" type="text" placeholder="reu" name="reu" autofocus=""></td>
 	          </tr>
 	        
 	          <tr>

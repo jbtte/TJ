@@ -1,42 +1,81 @@
 <?php
 
-	 // require common code
-    require_once("Comon/common.php");
+     // require common code
+    require_once("Comon/common.php"); 
+    
+    $id = $_SESSION["id"];
+	$_SESSION["data0"] = NULL;
+	$_SESSION["dataf"] = NULL;
+	$_SESSION["tipo"] = NULL;
 	
-	// calling function to fetch information from process
-	$num_processo = "12-21073";
 	
-	// include library simple HTML DOM
-	include('simple_html_dom.php');
 	
-	//enconding in UTF-8 so carachters with accent are shown correctly
-	header('Content-Type: text/html; charset=utf-8');
 	
-    //Establishing the correct url to be called
-    $url = call_url($num_processo); 
-   
-    // Create DOM from URL or file
-	$html = file_get_html($url);
-	
-	//quando ha mais de um processo com o mesmo numero
-	//classe do primeiro processo
-	$dados[5] = $html->find('#classeProcessual_1_1_1', 0)->value;
-	//numero do primeiro processo
-	$dados[6] = $html->find('#processo_1_1_1', 0)->value;
-	//classe do segundo processo
-	$dados[7] = $html->find('#classeProcessual_1_1_2', 0)->value;
-	//numero do segundo processo
-	$dados[8] = $html->find('#processo_1_1_2', 0)->value;
-	
-	echo $url;
-	//echo $html;
-	echo $dados[5];
-	echo $dados[6];
-	echo $dados[7];
-	echo $dados[8];
-	
-
 ?>
-
 <!DOCTYPE html>
+
+<html>
+
+  <head>
+    <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+    <title>Processos TJ: Pesquisa</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+	  <link rel="stylesheet" href="/resources/demos/style.css" />
+	  <script>
+	  $(function() {
+	    
+	    $("#nome_reu").autocomplete({
+	      source: 'autocomplete.php',
+	      minLength: 1
+	    });
+	  });
+	  </script>
+  </head>
+  
+  
+  <body>
+  
+    <div id ='header'>
+        <a href="index.php"> <img src="http://www2.tjdft.jus.br/img/cabecaBrasaoPgResp.jpg" alt="TJDFT"> </a>        
+    </div>
+
+
+	<div id='middle'>
+	      <form action="pesquisar2.php" method="post" autocomplete="off">
+	        <table>
+	          <tr>
+	            <td>Processo: </td><td> <input input type="text" placeholder="processo" name="processo" autofocus=""></td>
+	          </tr>
+	          
+	          <tr>
+	            <td>Tipo: </td><td><input input type="text" placeholder="tipo" name="tipo" autofocus=""></td>
+	          </tr>
+	          <tr >
+	            <td >Reu:</td><td><input id = "nome_reu" type="text" placeholder="reu" name="reu" autofocus=""></td>
+	          </tr>
+	        
+	          <tr>
+	            <td>Data:</td><td><input input type="date" placeholder="Data inicio" name="data0" autofocus=""></td>
+	           
+	            <td><input input type="date" placeholder="Data final" name="dataf" autofocus=""></td>
+	          </tr>
+	          
+	          
+	          
+	          
+	          <tr>
+	            <td></td>
+	            
+	            <td id='botao-gravar' colspan="2"><input type="submit" value="Pesquisar"></td>
+	          </tr>
+	        </table>
+	      </form>
+	    </div>
 	
+	  
+	
+	  </body>
+	
+</html>

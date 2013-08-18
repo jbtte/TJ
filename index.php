@@ -57,18 +57,7 @@
   	<title>JP: Processos</title>
     <!--<link href="css/stylesheet.css" rel="stylesheet" type="text/css">-->
     <link href="css/index.css" rel="stylesheet" type="text/css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-	</script>
-	<script>
-		$(document).ready(function(){
-		  $("#hide").click(function(){
-		    $(".menu").hide();
-		  });
-		  $("#show").click(function(){
-		    $(".menu").show();
-		  });
-		});
-	</script>
+    
     
   </head>
 
@@ -89,8 +78,7 @@
             
             
     </div>
-       <button id="hide">Hide</button>
-		<button id="show">Show</button>
+       
         
     <div>
         <table class = "tab_total">
