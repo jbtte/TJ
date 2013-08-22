@@ -13,16 +13,14 @@
 <html>
 
   <head>
-    <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="css/tj.css" rel="stylesheet" type="text/css">
     <title>JP: Processos</title>
   </head>
   
   
   <body>
   
-    <div id ='header'>
-        <a href="index.php"> <img src="http://www2.tjdft.jus.br/img/cabecaBrasaoPgResp.jpg" alt="TJDFT"> </a>        
-    </div>
+    
 
    
 
@@ -32,23 +30,7 @@
           <tr>
             <td>Processo: </td><td> <input input type="text" placeholder="processo" name="processo" autofocus=""></td>
           </tr>
-     <!--
-          <tr>
-            <td>Tipo: </td><td><input input type="text" placeholder="tipo" name="tipo" autofocus=""></td>
-          </tr>
-          <tr>
-            <td>Reu:</td><td><input input type="text" placeholder="reu" name="reu" autofocus=""></td>
-          </tr>
-          <tr>
-            <td>Crime:</td><td><input input type="text" placeholder="crime" name="crime" autofocus=""></td>
-          </tr>
-          <tr>
-            <td><input input type="radio" name="relator" value="relator">Relator</td><td><input input type="radio" name="relator" value="revisor">Revisor</td>
-          </tr>
-          
-          <tr>
-            <td></td>
-            -->
+    
             <td id='botao-gravar' colspan="2"><input type="submit" value="Pesquisar"></td>
           </tr> 
         </table>

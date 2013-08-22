@@ -1,0 +1,31 @@
+html { 
+   background: url(http://localhost/~JoaoBtte/TJ/imagens/legal-yellow-pad_5.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+
+#header{
+
+    text-indent: 0px;
+    background-color: RGB(32,82,115);
+    border: 1px solid;
+
+}
+
+
+#middle{
+
+    position: relative;
+    margin-top: 90px;
+    margin-left: 350px;
+    margin-right:auto;
+    width:30%;
+    top: 20px;
+    line-height:200%
+    
+    
+    
+}

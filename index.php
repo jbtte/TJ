@@ -55,8 +55,9 @@
 
   <head>
   	<title>JP: Processos</title>
-    <!--<link href="css/stylesheet.css" rel="stylesheet" type="text/css">-->
     <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
     
     
   </head>
@@ -85,13 +86,15 @@
             <tbody>
             	
         
-                <tr >
-                    <td class = "tab_total_titulo">Total</td>
-                    <td class = "tab_total_valor"><? print(count($total));  ?></td>
-                    <td class = "tab_total_titulo">RSE</td>
-                    <td class = "tab_total_valor"><? print(count($RSE));  ?></td>
-                    <td class = "tab_total_titulo">APR</td>
-                    <td class = "tab_total_valor"><? print(count($APR));  ?></td>
+                <tr class = "tab_tr" >
+                    <td class = "tab_total_titulo">Total: </td>
+                    <td class = "tab_total_valor"><? print(count($total));  ?></td></tr>
+                    <tr class = "tab_tr" >
+                    <td class = "tab_total_titulo">RSE: </td>
+                    <td class = "tab_total_valor"><? print(count($RSE));  ?></td></tr>
+                    <tr class = "tab_tr" >
+                    <td class = "tab_total_titulo">APR: 	</td>
+                    <td class = "tab_total_valor"><? print(count($APR));  ?></td></tr>
                 
                 </tr>
             </tbody>
