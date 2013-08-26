@@ -1,5 +1,5 @@
 html { 
-   background: url(http://localhost/~JoaoBtte/TJ/imagens/legal-yellow-pad_5.jpg) no-repeat center center fixed; 
+   background: url(http://localhost/~JoaoBtte/TJ/imagens/backgroundIII.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,25 +7,159 @@ html {
   
 }
 
-#header{
 
-    text-indent: 0px;
-    background-color: RGB(32,82,115);
-    border: 1px solid;
+
+.menu{
+	
+	width:10%;
+	height: 1%;
+	position: relative;
+	margin-top: 30px;
+   
+  	/*text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);*/
+  	color: white;
+  	list-style-type: none;
+  	text-shadow: 0 1px 0 color;
+  	
+	
+	
+}
+
+
+.link:hover{
+	
+	
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+	
+}
+
+a.link:link{
+	
+	color: black;
+	text-decoration:none;
+	
+}
+
+.link{
+	
+	font: 400 40px/1.3 'Mouse Memoirs', Helvetica, sans-serif;
+	color: #333;
+	/*background-color: #666;*/
+	text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
+	
+	
+	
+}
+
+
+
+.tab_total{
+	
+	/*border: 1px black solid;*/
+	position: relative;
+    margin-left: 440px;
+    margin-top: -220px;
+    /*font-size: 30px;
+    font-family: "Comic Sans MS";*/
+   	font: 400 40px/1.0 'Just Me Again Down Here', Helvetica, sans-serif;
+  	color: black /*#3300CC*/;
+  	/*text-shadow: 0px 3px 0px #5e5e5e, 0px 5px 0px #4d4d4d, 0px 7px 0px #3c3c3c, 0px 9px 0px #2b2b2b, 3px 8px 15px rgba(0,0,0,0.1), 3px 8px 5px rgba(0,0,0,0.3);
+    */text-align:center
+    line-height:250%;
+    
+   
+	
+	
+}
+
+.tab_tr{
+
+	/* Safari */
+	-webkit-transform: rotate(-15deg);
+	
+	/* Firefox */
+	-moz-transform: rotate(-15deg);
+	
+	/* IE */
+	-ms-transform: rotate(-15deg);
+	
+	/* Opera */
+	-o-transform: rotate(-15deg);
+	
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 }
 
 
-#middle{
 
-    position: relative;
-    margin-top: 90px;
-    margin-left: 350px;
-    margin-right:auto;
-    width:30%;
-    top: 20px;
-    line-height:200%
-    
-    
+
+
+.form_processo{
+	
+	font: 400 80px/1.3 'The Girl Next Door', Helvetica, sans-serif;
+	position: relative;
+    margin-left: 140px;
+    margin-top: 110px;
+    font-size: 25px;
+    text-align: center;
+    border-spacing: 10px;
     
 }
+
+#processo{
+	
+	background-repeat: no-repeat;
+    border-width:0px;
+    font-weight:bold;
+    font-family:'The Girl Next Door', Arial, Sans-Serif;
+    font-size:1em;
+    background-color: transparent;
+    
+	
+}
+
+#campo{
+	
+	background-color: transparent;
+
+}
+
+#botao-conferir{
+	
+	border: none;
+	background: none;
+	font-family:'The Girl Next Door', Arial, Sans-Serif;
+	font-size: 20px;
+	width: 50%;
+}
+
+
+#botao-conferir:hover {
+	
+	width: 20%;
+	height: 90%;
+	outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    font-weight:bold;
+ 	color: #fff;
+	text-shadow:
+	    -1px -1px 0 #000,
+	    1px -1px 0 #000,
+	    -1px 1px 0 #000,
+	    1px 1px 0 #000;
+}
+
+.table_tj4{
+	
+	font: 400 20px/1.3 'The Girl Next Door', Helvetica, sans-serif;
+	position: relative;
+	margin-left: 90px;
+    margin-top: 150px;
+	
+	
+	
+}
+

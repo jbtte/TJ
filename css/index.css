@@ -14,7 +14,7 @@ html {
 	width:10%;
 	height: 1%;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 30px;
    
   	/*text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);*/
   	color: white;
@@ -29,6 +29,14 @@ a.link:link{
 	
 	color: black;
 	text-decoration:none;
+	
+}
+
+.link:hover{
+	
+	
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
 	
 }
 
@@ -50,7 +58,7 @@ a.link:link{
 	/*border: 1px black solid;*/
 	position: relative;
     margin-left: 440px;
-    margin-top: -180px;
+    margin-top: -220px;
     /*font-size: 30px;
     font-family: "Comic Sans MS";*/
    	font: 400 40px/1.0 'Just Me Again Down Here', Helvetica, sans-serif;
@@ -92,7 +100,7 @@ a.link:link{
 	/*border: 1px black solid;*/
 	position: relative;
     margin-left: 40px;
-    margin-top: 100px;
+    margin-top: 110px;
     font-size: 11px;
     font-family: "Comic Sans MS";
     text-align: center;
@@ -109,6 +117,7 @@ a.link:link{
 }
 
 .index_tj_body{
+	
 	
 	line-height:290%;
 	font-weight: normal;
