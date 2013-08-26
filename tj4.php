@@ -97,7 +97,8 @@
 	        		<tr><td><input type="radio" name="processo" value="<?echo $dados[6]?>">  <?echo($dados[5])?></td></tr>
 	            	<tr><td><input type="radio" name="processo" value="<?echo $dados[8]?>">  <?echo($dados[7])?></td></tr>
 	           		
-	           		<tr><td id='botao-gravar' colspan="2"><input type="submit" value="Buscar"></td></tr> 
+	           		<tr><td colspan="2"><input id='botao-conferir' type="submit" value="Buscar"></td></tr>
+	           		
 	        	</table>
 			</form>
 	    </div>

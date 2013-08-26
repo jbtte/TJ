@@ -52,16 +52,16 @@
         	</table> 
     	</div>    
         <div class = "middle">
-  	    	<form action="tj2.php" method="post">
-	    	    <table>
-	        		<tr><td>Processo: </td><td> <input type="text"  name="processo" value = <?php print($dados[1])?>></td></tr>
-	    			<tr><td>Classe: </td><td><input type="text"  name="tipo" value = <?php print($dados[3])?>></td></tr>
-	          		<tr><td>Reu:</td><td><input type="text"  name="reu" value = '<?php print ($dados[0])?>'></td></tr>
-	          		<tr><td>Crime:</td><td><input type="text"  name="crime" value = '<?php print($dados[2])?>'></td></tr>
-	          		<tr><td>Relator:</td><td><input type="text" name="relator"  value = <?php print($dados[4])?>></tr>
-	          		<tr><td>Data:</td><td><input type="text" name="relator"  value = <?php print($today)?>></tr>
+  	    	<form action="tj2.php" method="post" id = "form_tj3">
+	    	    <table class = "form_processo_tj3">
+	        		<tr><td>Processo: </td><td class = "campo"> <input class = "processo" type="text"  name="processo" value = <?php print($dados[1])?>></td></tr>
+	    			<tr><td>Classe: </td><td class = "campo"><input class = "processo" type="text"  name="tipo" value = <?php print($dados[3])?>></td></tr>
+	          		<tr><td>Reu:</td><td class = "campo"><input  class = "processo" type="text"  name="reu" value = '<?php print ($dados[0])?>'></td></tr>
+	          		<tr><td>Crime:</td><td class = "campo"><input class = "processo" type="text"  name="crime" value = '<?php print($dados[2])?>'></td></tr>
+	          		<tr><td>Relator:</td><td class = "campo"><input class = "processo" type="text" name="relator"  value = <?php print($dados[4])?>></tr>
+	          		<tr><td>Data:</td><td class = "campo"><input class = "processo" type="text" name="relator"  value = <?php print($today)?>></tr>
 	          
-	          		<tr><td id='botao-gravar' colspan="2"><input type="submit" value="Gravar"></td></tr> 
+	          		<tr><td colspan="2"><input id='botao-conferir' type="submit" value="Gravar"></td></tr> 
 		        </table>
       		</form>
     	</div>

@@ -46,7 +46,7 @@
 	       	<form action="tj3.php" method="post" >
 	        	<table class = "form_processo">
 	          		<tr>
-	            		<td>Processo: </td><td id = "campo"> <input type="text" placeholder="Numero do Processo" name="processo" id = "processo"></td>
+	            		<td>Processo: </td><td class = "campo"> <input type="text" placeholder="Numero do Processo" name="processo" class = "processo"></td>
 	          		</tr>
 	    			<tr>
 	            		<td colspan="2"><input id='botao-conferir' type="submit" value="Buscar"></td><td></td>
