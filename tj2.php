@@ -11,14 +11,18 @@
     
     };
     
+    //retirar acento e cedilha
+	$reu = utf8_decode($_POST["reu"]);
+	$crime = utf8_decode($_POST["crime"]);
+    
     //putting information to upper case
-    $reu = strtoupper($_POST["reu"]);
-    $crime = strtoupper($_POST["crime"]);
+    $reu = strtoupper($reu);
+    $crime = strtoupper($crime);
     $tipo = strtoupper($_POST["tipo"]);
     $relator = strtoupper($_POST["relator"]);
     $processo = ($_POST["processo"]);
-    
-    
+	
+	
     //get date
     $today = date("Y-m-d");
     
@@ -27,51 +31,52 @@
     //echo($query);
     $result = mysql_query($query);
     
-       
-    //redirect back to main menu
-    //redirect("tj.php"); 
      
  ?>
  
  <!DOCTYPE html>
-     <html>
-     
-        <head>
-            <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
-            <title>JP: Processos</title>
-        </head>
+ <html>
+	<head>
+	  	<title>JP: Processos</title>
+	    <link href="css/tj.css" rel="stylesheet" type="text/css">
+	    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
+	    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
+	    <link href="http://fonts.googleapis.com/css?family=The Girl Next Door" rel="stylesheet" type="text/css">
+	    <link href="http://fonts.googleapis.com/css?family=Happy Monkey" rel="stylesheet" type="text/css">  
+  	</head>
+    
+  	<body>
+    	<div id ='menu_bar'>
+       		<div>        
+	        	<ul class= "menu">
+	            	<li class= "menu_list"><a class= "link" href="index.php">Home</a></li>
+	            	<li class= "menu_list"><a class= "link" href="tj.php">Cadastrar</a></li>
+		            <li class= "menu_list"><a class= "link" href="pesquisar.php">Pesquisar</a></li>
+		            <li class= "menu_list"><a class= "link" href="estatistica.php">Estatistica</a></li>
+		        </ul>
+	    	</div>      
+        </div>
         
-        
-        <body>
-        
-            <div id ='header'>
-                <a href="index.php"> <img src="http://www2.tjdft.jus.br/img/cabecaBrasaoPgResp.jpg" alt="TJDFT"> </a>         
+    	<div class = "top" >
+        	<table class = "tab_total">
+            	<tbody>
+            		<tr class = "tab_tr" >
+                    	<td class = "tab_total_titulo">Total: </td>
+	                    <td class = "tab_total_valor"><? print($_SESSION["TOTAL"]);  ?></td></tr>
+	                    <tr class = "tab_tr" >
+	                    <td class = "tab_total_titulo">RSE: </td>
+	                    <td class = "tab_total_valor"><? print($_SESSION["RSE"]);  ?></td></tr>
+	                    <tr class = "tab_tr" >
+	                    <td class = "tab_total_titulo">APR: 	</td>
+	                    <td class = "tab_total_valor"><? print($_SESSION["APR"]);  ?></td></tr>       
+                	</tr>
+            	</tbody>
+        	</table> 
+    	</div>    
+    
+   	 	<div class = "middle">
+            <div class = "form_processo_tj2">
+               <p>Cadastro realizado com sucesso!</p>
             </div>
-        
-            <div id='middle_cad'>
-                
-                <p>Cadastro realizado com sucesso!</p>
-            
-                  
-                <table >
-                    <tbody>
-                    	
-                        <tr>
-                        	
-                           <FORM id='botao-menu' METHOD="LINK" ACTION="index.php"> <INPUT TYPE="submit" VALUE="Menu"></FORM>
-                           <FORM id='botao-novo' METHOD="LINK" ACTION="tj.php"> <INPUT TYPE="submit" VALUE="Novo Cadastro"></FORM> 	   
-                            
-                            
-                        </tr>
-                    </tbody>
-                </table>
-
-
-                
-            </div>
-        
-        </body>
-     
-     
-     
-     </html>
+   </body>
+</html>
