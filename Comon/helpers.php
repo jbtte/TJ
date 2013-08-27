@@ -327,17 +327,6 @@ function total($classe)
 	    
 	}
 
-/*
- * retira acento e cedilha
- */
- 
-function retira_acentos($texto){
-	
- return strtr($texto, "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ", "aaaaeeiooouucAAAAEEIOOOUUC");
- 
-}
-
-
 
 ?>
 
