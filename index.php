@@ -15,42 +15,6 @@
 	$_SESSION["APR"] = total('APR');
 	$_SESSION["TOTAL"] = $_SESSION["RSE"] + $_SESSION["APR"];
     
-    /*/ Retriving current month and year
-    $month = date("m");
-    $pmonth = $month - 1;
-    $amonth = $month + 1;
-    $year = date("Y");
-    
-    
-    // Counting the total number of entries current month and year
-    $query = mysql_query("SELECT * FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `data` < '$year-$amonth-01'");
-    $total = array();
-    
-    while($row = mysql_fetch_row($query)){
-        array_push($total, $row["tipo"]);
-    
-    }
-        
-    
-     
-    // Counting the total number of entries RSE current month and year
-    $query = mysql_query("SELECT `index` FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `Data` < '$year-$amonth-01' AND `tipo` = 'RSE'");
-    $RSE = array();
-    while($row = mysql_fetch_row($query)){
-        array_push($RSE, $row["index"]);
-        
-    }
-    
-    // Counting the total number of entries APELACAO' current month and year
-    $query = mysql_query("SELECT `index` FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `Data` < '$year-$amonth-01' AND `tipo` = 'APR'");
-    $APR = array();
-    
-    while($row = mysql_fetch_row($query)){
-        array_push($APR, $row["index"]);
-        
-    }*/
-    
-  
 ?>
 
 <!DOCTYPE html>

@@ -10,7 +10,6 @@
 	//get date
     $today = date("Y-m-d");
 	
-	
 ?>
 <!DOCTYPE html>
 <html>

@@ -10,8 +10,7 @@
 	
 	// calling function to fetch information from process
 	$num_processo = $_GET["id"];
-	
-	
+		
     //Establishing the correct url to be called
     $url = call_url($num_processo); 
    
@@ -44,11 +43,7 @@
 		//numero do segundo processo
 		$dados[8] = $html->find('#processo_1_2_1', 0)->value;
 		
-		
-		
 	}
-	
-	
 	
 
 ?>
