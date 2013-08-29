@@ -187,3 +187,16 @@ a.link:link{
     border-spacing: 10px;
     
 }
+
+.Num {
+  border: 1px solid #ccc;
+  display: none;
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+.sNum:hover .Num{
+  display: block;
+}

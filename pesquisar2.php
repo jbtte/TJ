@@ -61,9 +61,8 @@
 	            <thead>
 	                <tr class = 'index_tj_head'>
 	                    <th class = 'index_tj'>Data</th>
-	                    <th class = 'index_tj'>Tipo</th>
-	                    <th class = 'index_tj'>Numero</th>
-	                    <th class = 'index_tj'>Relator</th>
+	                    <th class = 'index_tj'>Processo</th>
+	                    <th class = 'index_tj'>Gabinete</th>
 	                    <th class = 'index_tj'>Reu</th>
 	                    <th class = 'index_tj'>Crime</th>
 	                </tr>		            
@@ -110,8 +109,7 @@
 				        
 				        print('<tr class = index_tj_body>');                                        
 				        print('<td>'. $row["data"] . '</td>');
-				        print('<td>'. $row["tipo"] . '</td>');
-				        print('<td>'. $row["processo"] . '</td>');
+				        print('<td class = "sNum">'. mascara($row["processo"]) . " ". $row["tipo"] . '<span class = "Num">'.$row["processo"]. '</span></td>');
 				        print('<td>'. $row["relator"] . '</td>');
 				        print('<td>'. $row["reu"] . '</td>');
 				        print('<td>'. $row["crime"] . '</td>');

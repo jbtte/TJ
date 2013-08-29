@@ -79,7 +79,7 @@
 	                        print('<tr class = index_tj_body>');                                        
 	                        print('<td>'. $row["Data"] . '</td>');
 	                        print('<td>'. $row["tipo"] . '</td>');
-	                        print('<td>'. $row["processo"] . '</td>');
+	                        print('<td class = "sNum">'. mascara($row["processo"]) . '<span class = "Num">'.$row["processo"]. '</span></td>');
 	                        print('<td>'. $row["relator"] . '</td>');
 	                        print('<td>'. $row["reu"] . '</td>');
 	                        print('<td>'. $row["crime"] . '</td>');

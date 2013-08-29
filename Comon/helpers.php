@@ -44,89 +44,55 @@
     }
 
 
-    /*
-     * void
-     * logout()
-     *
-     * Logs out current user, if any.  Based on Example #1 at
-     * http://us.php.net/manual/en/function.session-destroy.php.
-     */
-
-    function logout()
-    {
-        // unset any session variables
-        $_SESSION = array();
-
-        // expire cookie
-        if (isset($_COOKIE[session_name()]))
-        {
-            if (preg_match("{^(/~[^/]+/pset7/)}", $_SERVER["REQUEST_URI"], $matches))
-                setcookie(session_name(), "", time() - 42000, $matches[1]);
-            else
-                setcookie(session_name(), "", time() - 42000);
-        }
-
-        // destroy session
-        session_destroy();
-    }
-
-
     
-    /*
-     * void
-     * redirect($destination)
-     * 
-     * Redirects user to destination, which can be
-     * a URL or a relative path on the local host.
-     *
-     * Because this function outputs an HTTP header, it
-     * must be called before caller outputs any HTML.
-     */
 
-    function redirect($destination)
-    {
-        // handle URL
-        if (preg_match("/^http:\/\//", $destination))
-            header("Location: " . $destination);
-
-        // handle absolute path
-        else if (preg_match("/^\//", $destination))
-        {
-            $protocol = (@$_SERVER["HTTPS"]) ? "https" : "http";
-            $host = $_SERVER["HTTP_HOST"];
-            header("Location: $protocol://$host$destination");
-        }
-
-        // handle relative path
-        else
-        {
-            // adapted from http://www.php.net/header
-            $protocol = (@$_SERVER["HTTPS"]) ? "https" : "http";
-            $host = $_SERVER["HTTP_HOST"];
-            $path = rtrim(dirname($_SERVER["PHP_SELF"]), "/\\");
-            header("Location: $protocol://$host$path/$destination");
-        }
-
-        // exit immediately since we're redirecting anyway
-        exit;
-    }
 	
-	
-	//criando uma mascara para formatar o numero do processo
+	/*
+	 * criando uma mascara para formatar o numero do processo
+	 * 
+	 */	
 	
 	function mascara_string($mascara,$string)
-	{
-	   //$string = str_replace(" ","",$string);
-	   for($i=0;$i<(strlen($string)-3);$i++)
-	   {
-	      $mascara[strpos($mascara,"#")] = $string[$i];
-	   }
-	   return $mascara;
-	}
+		{
+		   //$string = str_replace(" ","",$string);
+		   for($i=0;$i<(strlen($string)-3);$i++)
+		   {
+		      $mascara[strpos($mascara,"#")] = $string[$i];
+		   }
+		   return $mascara;
+		}
 	
-
-
-
+	
+	/*
+	 * criando uma mascara para formatar o numero do processo
+	 * para mostrar somente os numeros relevantes 
+	 */	
+	
+	function mascara($num)
+	{
+			
+		
+		if (strlen($num)<17)
+		{
+			
+			return $num;
+			
+		}
+		
+		
+		else{
+			
+		$j = ltrim(substr($num, 5, 2), '0');
+		
+		
+		$i = ltrim(substr($num, 10, 6), '0');
+		
+		
+		return $j."-".$i.$num[17];
+		
+		}
+		
+	}
 
 	/*
      * 
@@ -137,7 +103,7 @@
 	 */
   
 
-function lookup($num_processo)
+	function lookup($num_processo)
 	{
 		
 		// include library simple HTML DOM
@@ -165,14 +131,14 @@ function lookup($num_processo)
 		
 	}
 	
-/*
- * Inputs the correct URL to the function lookup
- * 
- * 
- */	
- 
- 
-function call_url($num_processo){
+	/*
+	 * Inputs the correct URL to the function lookup
+	 * 
+	 * 
+	 */	
+	 
+	 
+	function call_url($num_processo){
 				
 			
 		if (strlen($num_process) > 9){
@@ -186,18 +152,16 @@ function call_url($num_processo){
 	
 		return $url;
 		
-}
+	}
 	
-/*
- * Returns the information obtained at the website
- * 
- * 
- * 
- */
+	/*
+	 * Returns the information obtained at the website
+	 * 
+	 */
  
-function call_dados($html, $num_processo){
-	
-	
+	function call_dados($html, $num_processo)
+	{
+
 	//instantiate a stock object
 	$dados = array();
 
@@ -243,90 +207,93 @@ function call_dados($html, $num_processo){
 	
 	return $dados;
 	
-}	
+	}	
 
-/*
- * Transformando o nome por extenso na sigla: APR, RSE e RAG
- * 
- * 
- */	
- 
- function para_Sigla($dados){
+	/*
+	 * Transformando o nome por extenso na sigla: APR, RSE e RAG
+	 * 
+	 * 
+	 */	
+	 
+	 function para_Sigla($dados)
+	 {
 		
-	switch($dados){
-		
-		case "Apelação Criminal":
-			$dados = "APR";
-			break;
+		switch($dados){
 			
-		case "Recurso em Sentido Estrito":
-			$dados = "RSE";
-			break;
+			case "Apelação Criminal":
+				$dados = "APR";
+				break;
+				
+			case "Recurso em Sentido Estrito":
+				$dados = "RSE";
+				break;
+				
+			case "Recurso de Agravo":
+				$dados = "RAG";
+				break;
 			
-		case "Recurso de Agravo":
-			$dados = "RAG";
-			break;
-		
-		default:
-			$dados = $dados;
-	}
-
-	return $dados;
-
-}
- 
- 
- /*
-  * Verificando se o processo e de relator ou revisor
-  */
-		
-function e_relator($dados){
-
-
-	switch($dados){
-		
-		case "Desª. NILSONI DE FREITAS":
-			$dados = "RELATOR";
-			break;
-		
-		default:
-			$dados = "REVISOR";
-		
-	}
+			default:
+				$dados = $dados;
+		}
 	
-	return $dados;
- 	
-}	
+		return $dados;
 
-/*
- * Function calculates the number of entries of class $classe
- * in the current month
- * 
- * 
- */
-
-function total($classe)
-	{
-	    
-	    // Retriving current month and year
-	    $month = date("m");
-	    $pmonth = $month - 1;
-	    $amonth = $month + 1;
-	    $year = date("Y");
-	    
-	     
-	    // Counting the total number of entries RSE current month and year
-	    $query = mysql_query("SELECT `index` FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `Data` < '$year-$amonth-01' AND `tipo` = '$classe'");
-	    $Total = array();
-	    while($row = mysql_fetch_row($query)){
-	        array_push($Total, $row["index"]);
-	        
-	    }
-	   
-		return count($Total);	 
-	    
 	}
+ 
+ 
+	 /*
+	  * Verificando se o processo e de relator ou revisor
+	  */
+		
+	function e_relator($dados)
+	{
 
+
+		switch($dados){
+			
+			case "Desª. NILSONI DE FREITAS":
+				$dados = "RELATOR";
+				break;
+			
+			default:
+				$dados = "REVISOR";
+		
+		}
+	
+		return $dados;
+ 	
+	}	
+
+	/*
+	 * Function calculates the number of entries of class $classe
+	 * in the current month
+	 * 
+	 * 
+	 */
+	
+	function total($classe)
+		{
+		    
+		    // Retriving current month and year
+		    $month = date("m");
+		    $pmonth = $month - 1;
+		    $amonth = $month + 1;
+		    $year = date("Y");
+		    
+		     
+		    // Counting the total number of entries RSE current month and year
+		    $query = mysql_query("SELECT `index` FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `Data` < '$year-$amonth-01' AND `tipo` = '$classe'");
+		    $Total = array();
+		    while($row = mysql_fetch_row($query)){
+		        array_push($Total, $row["index"]);
+		        
+		    }
+		   
+			return count($Total);	 
+		    
+		}
+		
+		
 
 ?>
 
