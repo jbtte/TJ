@@ -77,11 +77,11 @@
                     	<td class = "tab_total_titulo">Total: </td>
 	                    <td class = "tab_total_valor"><? print($_SESSION["TOTAL"]);  ?></td></tr>
 	                    <tr class = "tab_tr" >
-	                    <td class = "tab_total_titulo">RSE: </td>
-	                    <td class = "tab_total_valor"><? print($_SESSION["RSE"]);  ?></td></tr>
+	                    <td class = "tab_total_titulo">REL: </td>
+	                    <td class = "tab_total_valor"><? print($_SESSION["RELATOR"]);  ?></td></tr>
 	                    <tr class = "tab_tr" >
-	                    <td class = "tab_total_titulo">APR: 	</td>
-	                    <td class = "tab_total_valor"><? print($_SESSION["APR"]);  ?></td></tr>       
+	                    <td class = "tab_total_titulo">REV: 	</td>
+	                    <td class = "tab_total_valor"><? print($_SESSION["REVISOR"]);  ?></td></tr>       
                 	</tr>
             	</tbody>
         	</table> 

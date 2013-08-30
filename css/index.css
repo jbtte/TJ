@@ -1,5 +1,6 @@
 html { 
-   background: url(http://localhost/~JoaoBtte/TJ/imagens/backgroundII.jpg) no-repeat center center fixed; 
+  /*background: url(http://localhost/~JoaoBtte/TJ/imagens/backgroundII.jpg) no-repeat center center fixed;*/ 
+   background: url(http://jpmb.p.ht/TJ/imagens/backgroundII.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

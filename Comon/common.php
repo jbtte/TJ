@@ -30,8 +30,9 @@
     // require authentication for most pages
     if (!preg_match("{/(:?login|logout|register)\d*\.php$}", $_SERVER["PHP_SELF"]))
     {
-        if (!isset($_SESSION["id"]))
-            redirect("login.php");
+        if (!isset($_SESSION["id"])){
+        	
+            header("Location:login.php");}
     }
 
     // connect to database server

@@ -282,7 +282,7 @@
 		    
 		     
 		    // Counting the total number of entries RSE current month and year
-		    $query = mysql_query("SELECT `index` FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `Data` < '$year-$amonth-01' AND `tipo` = '$classe'");
+		    $query = mysql_query("SELECT `index` FROM `processos` WHERE  `data`> '$year-$pmonth-31' AND `Data` < '$year-$amonth-01' AND `relator` = '$classe'");
 		    $Total = array();
 		    while($row = mysql_fetch_row($query)){
 		        array_push($Total, $row["index"]);
