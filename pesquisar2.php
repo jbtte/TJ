@@ -28,34 +28,9 @@
 	    <link href="http://fonts.googleapis.com/css?family=The Girl Next Door" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Happy Monkey" rel="stylesheet" type="text/css">
 	</head>
-    <body>
-    	<div id ='menu_bar'>
-       		<div>        
-	        	<ul class= "menu">
-	            	<li class= "menu_list"><a class= "link" href="index.php">Home</a></li>
-	            	<li class= "menu_list"><a class= "link" href="tj.php">Cadastrar</a></li>
-		            <li class= "menu_list"><a class= "link" href="pesquisar.php">Pesquisar</a></li>
-		            <li class= "menu_list"><a class= "link" href="estatistica.php">Estatistica</a></li>
-		        </ul>
-	    	</div>      
-        </div>
-        
-    	<div class = "top" >
-        	<table class = "tab_total">
-            	<tbody>
-            		<tr class = "tab_tr" >
-                    	<td class = "tab_total_titulo">Total: </td>
-	                    <td class = "tab_total_valor"><? print($_SESSION["TOTAL"]);  ?></td></tr>
-	                    <tr class = "tab_tr" >
-	                    <td class = "tab_total_titulo">REL: </td>
-	                    <td class = "tab_total_valor"><? print($_SESSION["RELATOR"]);  ?></td></tr>
-	                    <tr class = "tab_tr" >
-	                    <td class = "tab_total_titulo">REV: 	</td>
-	                    <td class = "tab_total_valor"><? print($_SESSION["REVISOR"]);  ?></td></tr>       
-                	</tr>
-            	</tbody>
-        	</table> 
-    	</div> 
+    	
+    	<? top_site() ?>
+    
 		<div id='middle'>
         	<table class="form_pesquisar_p2">
 	            <thead>
