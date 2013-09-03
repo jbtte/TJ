@@ -5,7 +5,7 @@
 	
 	$term = $_REQUEST['term'];
 	
-	$req = "SELECT reu FROM Processos WHERE reu LIKE '%". $term ."%' "; 
+	$req = "SELECT reu FROM processos WHERE reu LIKE '%". $term ."%' "; 
 
 	$query = mysql_query($req);
 	

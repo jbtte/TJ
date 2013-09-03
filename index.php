@@ -26,6 +26,7 @@
 	    <link href="css/index.css" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
+	    <meta charset='utf-8'> 
 	</head>
 
   		<? top_site() ?>
