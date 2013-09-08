@@ -8,7 +8,8 @@
 <html>
 	<head>
 	    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	    <link href="css/estatistica.css" rel="stylesheet" type="text/css">
+	    <link href="css/estatistica.css" rel="stylesheet" type="text/css" media="screen and (max-height: 800px)">
+	    <link href="css/estatistica-job.css" rel="stylesheet" media="screen and (min-height: 800px)">
 	    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=The Girl Next Door" rel="stylesheet" type="text/css">
@@ -24,7 +25,7 @@
 	      function drawVisualization() {
 	        // Some raw data (not necessarily accurate)
 	        var data = google.visualization.arrayToDataTable([
-	          ['Month', 'RSE/RAG',   'APR',      'Total', 'Media'],
+	          ['Month', 'RSE',   'APR',      'Total', 'Media'],
 	          ['Março',  10,         15,           25,        25],
 	          ['Abril',  7,           3,           10,        17.5],
 	          ['Maio',  9,           21,           30,        21.7],

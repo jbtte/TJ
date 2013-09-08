@@ -42,7 +42,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	<title>Processos TJ: Pesquisa</title><link href="css/pesquisar.css" rel="stylesheet" type="text/css">
+    	<title>Processos TJ: Pesquisa</title>
+    	<link href="css/pesquisar.css" rel="stylesheet" type="text/css" media="screen and (max-height: 800px)">
+	    <link href="css/pesquisar-job.css" rel="stylesheet" media="screen and (min-height: 800px)">
 	    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=The Girl Next Door" rel="stylesheet" type="text/css">
@@ -67,6 +69,10 @@
 	            	
 	            	
 	            	<?php
+	            		
+	            		if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+						
+						$start_from = ($page-1) * 20;
 	           		
 						if($_GET["tipo"] != NULL){
 							

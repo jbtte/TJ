@@ -22,7 +22,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	<title>Processos TJ: Pesquisa</title><link href="css/pesquisar.css" rel="stylesheet" type="text/css">
+    	<title>Processos TJ: Pesquisa</title>
+    	<link href="css/pesquisar.css" rel="stylesheet" type="text/css" media="screen and (max-height: 800px)">
+	    <link href="css/pesquisar-job.css" rel="stylesheet" media="screen and (min-height: 800px)">
 	    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=The Girl Next Door" rel="stylesheet" type="text/css">
@@ -45,12 +47,16 @@
 		        </thead>
 		        <tbody>
             		<?php
+            		
+            			// creating a variable that repeats
+            			$same_path = "SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE ";
+	            		 
 	            		 // check if any field was filled in
 					    if (($_POST["reu"] != null) && ($_POST["tipo"] != null))
 						{			
 							$reu = $_POST["reu"];
 							$tipo = $_POST["tipo"];
-							$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE reu LIKE '%$reu%' AND tipo LIKE '$tipo'");
+							$result = mysql_query($same_path."reu LIKE '%$reu%' AND tipo LIKE '$tipo'");
 								
 						}
 						
@@ -60,7 +66,7 @@
 							
 							$processo = $_POST["processo"];
 							$tipo = strtoupper($_POST["tipo"]);
-							$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE processo LIKE '%$processo%' AND tipo LIKE '$tipo'");
+							$result = mysql_query($same_path."processo LIKE '%$processo%' AND tipo LIKE '$tipo'");
 								
 						}
 					    
@@ -68,7 +74,7 @@
 						{
 								
 							$reu = $_POST["reu"];
-							$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE reu LIKE '%$reu%'");
+							$result = mysql_query($same_path."reu LIKE '%$reu%'");
 								
 						}
 						
@@ -76,7 +82,7 @@
 						{
 	
 							$processo = $_POST["processo"];
-							$result = mysql_query("SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE `processo` LIKE '%$processo%'");
+							$result = mysql_query($same_path."`processo` LIKE '%$processo%'");
 								
 						}
 						

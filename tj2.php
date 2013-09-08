@@ -38,7 +38,8 @@
  <html>
 	<head>
 	  	<title>JP: Processos</title>
-	    <link href="css/tj.css" rel="stylesheet" type="text/css">
+	    <link href="css/tj.css" rel="stylesheet" type="text/css" media="screen and (max-height: 800px)">
+	    <link href="css/tj-job.css" rel="stylesheet" media="screen and (min-height: 800px)">
 	    <link href="http://fonts.googleapis.com/css?family=Just Me Again Down Here" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=Mouse Memoirs" rel="stylesheet" type="text/css">
 	    <link href="http://fonts.googleapis.com/css?family=The Girl Next Door" rel="stylesheet" type="text/css">

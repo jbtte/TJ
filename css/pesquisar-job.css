@@ -1,0 +1,204 @@
+html { 
+   /*background: url(http://localhost/~JoaoBtte/TJ/imagens/backgroundIII.jpg) no-repeat center center fixed;*/
+   background: url(http://jpmb.p.ht/TJ/imagens/backgroundIII.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+
+
+
+.menu{
+	
+	width:10%;
+	height: 1%;
+	position: relative;
+	margin-top: 30px;
+   
+  	/*text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);*/
+  	color: white;
+  	list-style-type: none;
+  	text-shadow: 0 1px 0 color;
+  	
+	
+	
+}
+
+
+.link:hover{
+	
+	
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+	
+}
+
+a.link:link{
+	
+	color: black;
+	text-decoration:none;
+	
+}
+
+.link{
+	
+	font: 400 40px/1.3 'Mouse Memoirs', Helvetica, sans-serif;
+	color: #333;
+	/*background-color: #666;*/
+	text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
+	
+	
+	
+}
+
+
+
+.tab_total{
+	
+	/*border: 1px black solid;*/
+	position: relative;
+    margin-left: 350px;
+    margin-top: -95px;
+    /*font-size: 30px;
+    font-family: "Comic Sans MS";*/
+   	font: 400 40px/1.0 'Just Me Again Down Here', Helvetica, sans-serif;
+  	color: black /*#3300CC*/;
+  	/*text-shadow: 0px 3px 0px #5e5e5e, 0px 5px 0px #4d4d4d, 0px 7px 0px #3c3c3c, 0px 9px 0px #2b2b2b, 3px 8px 15px rgba(0,0,0,0.1), 3px 8px 5px rgba(0,0,0,0.3);
+    */text-align:center
+    line-height:250%;
+    
+   
+	
+	
+}
+
+
+.tab_tr{
+
+	/* Safari */
+	-webkit-transform: rotate(-15deg);
+	
+	/* Firefox */
+	-moz-transform: rotate(-15deg);
+	
+	/* IE */
+	-ms-transform: rotate(-15deg);
+	
+	/* Opera */
+	-o-transform: rotate(-15deg);
+	
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+
+
+
+.form_pesquisar{
+	
+	
+	font: 400 80px/1.3 'The Girl Next Door', Helvetica, sans-serif;
+	position: relative;
+	width: 30%;
+    margin-left: 90px;
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: left;
+    border-spacing: 10px;
+    
+}
+
+
+#botao-conferir{
+	
+	border: none;
+	background: none;
+	font-family:'The Girl Next Door', Arial, Sans-Serif;
+	font-size: 20px;
+	width: 30%;
+	text-align: center;
+}
+
+
+#botao-conferir:hover {
+	
+	width: 30%;
+	height: 90%;
+	outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    font-weight:bold;
+ 	color: #fff;
+	text-shadow:
+	    -1px -1px 0 #000,
+	    1px -1px 0 #000,
+	    -1px 1px 0 #000,
+	    1px 1px 0 #000;
+}
+
+.processo{
+	
+	background-repeat: no-repeat;
+    border-width:0px;
+    font-weight:bold;
+    font-family:'The Girl Next Door', Arial, Sans-Serif;
+    font-size:0.7em;
+    background-color: transparent;
+    width:120%;
+    
+	
+}
+
+.form_pesquisar_p2{
+	
+	font: 400 80px/1.3 'The Girl Next Door', Helvetica, sans-serif;
+	position: relative;
+	width: 58%;
+    margin-left: 40px;
+    margin-top: 120px;
+    font-size: 20px;
+    text-align: center;
+    border-spacing: 10px;
+    
+}
+
+.data_1{
+	
+	background-repeat: no-repeat;
+    border-width:0px;
+    font-weight:bold;
+    font-family:'The Girl Next Door', Arial, Sans-Serif;
+    font-size:0.65em;
+    background-color: transparent;
+	width: 100%;
+	
+}
+
+.form_pesquisar_p3{
+	
+	font: 400 80px/1.3 'The Girl Next Door', Helvetica, sans-serif;
+	position: relative;
+	width: 58%;
+    margin-left: 0px;
+    margin-top: 100px;
+    font-size: 15px;
+    text-align: center;
+    border-spacing: 10px;
+    
+}
+
+.Num {
+  border: 1px solid #ccc;
+  display: none;
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+.sNum:hover .Num{
+  display: block;
+}

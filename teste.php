@@ -2,43 +2,11 @@
     
     
 	
-	//hard code number of file
-	$num_processo = "2000.03.1.010173-4";
-	
-	//function to show only relevant numbers
-	
-	function mascara($num)
-	{
-			
-		if (strlen($num)<17)
-		{
-			
-			return $num;
-			
-		}
-		
-		
-		else{
-			
-		$j = ltrim(substr($num, 5, 2), '0');
-		
-		
-		$i = ltrim(substr($num, 10, 6), '0');
-		
-		
-		return $j."-".$i.$num[17];
-		
-		}
-		
-		
-	}
-		
+	$same_path = "SELECT tipo, processo, relator, reu, crime, data FROM processos WHERE";
+	$result = ($same_path." reu LIKE '%$reu%' AND tipo LIKE '$tipo'");
 	
 	
-	$novo_num = mascara($num_processo);
-	
-	
-	echo $novo_num;
+	echo $result;
 	
 ?>
 
